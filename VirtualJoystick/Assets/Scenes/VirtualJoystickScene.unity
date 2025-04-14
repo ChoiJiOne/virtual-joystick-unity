@@ -548,6 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _virtualJoystick: {fileID: 178181925}
+  _animator: {fileID: 951319446}
   _moveSpeed: 10
 --- !u!95 &951319446
 Animator:
