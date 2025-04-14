@@ -40,6 +40,7 @@ public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler,
     public void OnPointerUp(PointerEventData eventData)
     {
         _controller.rectTransform.anchoredPosition = Vector2.zero;
+        _touchAxis = Vector2.zero;
         _touchPosition = Vector2.zero;
     }
 }
