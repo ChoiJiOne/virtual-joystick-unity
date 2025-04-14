@@ -9,6 +9,7 @@ public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler,
     public float Vertical => _touchAxis.y;
 
     [SerializeField] private RectTransform _rectTransform;
+    [SerializeField, Range(0.2f, 0.5f)] private float _controllerBound;
 
     [Header("Image")]
     [SerializeField] private Image _background;
@@ -25,11 +26,14 @@ public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_rectTransform, eventData.position, eventData.pressEventCamera, out _touchPosition))
         {
-            _touchAxis.x = (_touchPosition.x / (_rectTransform.sizeDelta.x * 0.5f));
-            _touchAxis.y = (_touchPosition.y / (_rectTransform.sizeDelta.y * 0.5f));
+            _touchAxis.x = (_touchPosition.x / (_rectTransform.sizeDelta.x * _controllerBound));
+            _touchAxis.y = (_touchPosition.y / (_rectTransform.sizeDelta.y * _controllerBound));
             _touchAxis = (_touchAxis.magnitude > 1.0f) ? _touchAxis.normalized : _touchAxis;
 
-            _controller.rectTransform.anchoredPosition = new Vector2(_touchAxis.x * _rectTransform.sizeDelta.x * 0.5f, _touchAxis.y * _rectTransform.sizeDelta.y * 0.5f);
+            _controller.rectTransform.anchoredPosition = new Vector2(
+                _touchAxis.x * _rectTransform.sizeDelta.x * _controllerBound, 
+                _touchAxis.y * _rectTransform.sizeDelta.y * _controllerBound
+            );
         }
     }
 
