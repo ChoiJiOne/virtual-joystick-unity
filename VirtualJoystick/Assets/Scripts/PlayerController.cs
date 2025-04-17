@@ -5,16 +5,49 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VirtualJoystick _virtualJoystick;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private bool _isRun = false;
+    private bool _isDirtyDirection = false;
     private Vector3 _moveDirection = Vector3.zero;
 
     private void Update()
     {
-        _moveDirection.x = _virtualJoystick.Horizontal;
-        _moveDirection.y = _virtualJoystick.Vertical;
+        UpdateMoveDirection();
+
         transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
 
+        UpdateSpriteRendererFlip();
+        UpdateAnimationState();
+    }
+
+    private void UpdateMoveDirection()
+    {
+        float horizontal = _virtualJoystick.Horizontal;
+        float vertical = _virtualJoystick.Vertical;
+
+        if (_moveDirection.x != horizontal || _moveDirection.y != vertical)
+        {
+            _isDirtyDirection = true;
+        }
+
+        _moveDirection.x = horizontal;
+        _moveDirection.y = vertical;
+    }
+
+    private void UpdateSpriteRendererFlip()
+    {
+        if (!_isDirtyDirection)
+        {
+            return;
+        }
+
+        _spriteRenderer.flipX = _moveDirection.x < 0.0f;
+        _isDirtyDirection = false;
+    }
+
+    private void UpdateAnimationState()
+    {
         if (_isRun && _moveDirection.x == 0.0f && _moveDirection.y == 0.0f)
         {
             _isRun = false;
