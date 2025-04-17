@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class BoundaryController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Camera _mainCamera;
 
-    // Update is called once per frame
-    void Update()
+    private float _cameraWidth = 0.0f;
+    private float _cameraHeight = 0.0f;
+    
+    private void Awake()
     {
-        
+        _cameraHeight = _mainCamera.orthographicSize * 2.0f;
+        _cameraWidth = _cameraHeight * _mainCamera.aspect;
     }
 }
