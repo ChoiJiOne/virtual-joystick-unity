@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42539c8b0b7599142a177000a65e14a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDrag: 0
   _rectTransform: {fileID: 178181924}
   _controllerBound: 0.2
   _background: {fileID: 1770199882}
@@ -639,7 +640,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 20, y: 12}
+  m_Size: {x: 40, y: 20}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
