@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
+public class VirtualJoystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Vector2 TouchPosition => _touchPosition;
     public float Horizontal => _touchAxis.x;
     public float Vertical => _touchAxis.y;
+    public bool IsDrag;
 
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField, Range(0.2f, 0.5f)] private float _controllerBound;
@@ -18,8 +19,11 @@ public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler,
     private Vector2 _touchPosition;
     private Vector2 _touchAxis;
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
+        _touchAxis = Vector2.zero;
+
+        IsDrag = true;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -37,10 +41,11 @@ public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler,
         }
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnEndDrag(PointerEventData eventData)
     {
         _controller.rectTransform.anchoredPosition = Vector2.zero;
-        _touchAxis = Vector2.zero;
         _touchPosition = Vector2.zero;
+
+        IsDrag = false;
     }
 }
