@@ -12,9 +12,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        UpdateMoveDirection();
-
-        transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
+        if (_virtualJoystick.IsDrag)
+        {
+            UpdateMoveDirection();
+            transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
+        }
 
         UpdateAnimationState();
     }
@@ -28,13 +30,13 @@ public class PlayerController : MonoBehaviour
     private void UpdateAnimationState()
     {
         bool isDirty = false;
-        if (_isRun && _moveDirection.x == 0.0f && _moveDirection.y == 0.0f)
+        if (_isRun && !_virtualJoystick.IsDrag)
         {
             isDirty = true;
             _isRun = false;
         }
 
-        if (!_isRun && (_moveDirection.x != 0.0f || _moveDirection.y != 0.0f))
+        if (!_isRun && _virtualJoystick.IsDrag)
         {
             isDirty = true;
             _isRun = true;
