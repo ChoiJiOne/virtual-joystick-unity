@@ -21,8 +21,6 @@ public class VirtualJoystick : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _touchAxis = Vector2.zero;
-
         IsDrag = true;
     }
 
