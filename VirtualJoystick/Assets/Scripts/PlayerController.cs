@@ -27,18 +27,22 @@ public class PlayerController : MonoBehaviour
     
     private void UpdateAnimationState()
     {
+        bool isDirty = false;
         if (_isRun && _moveDirection.x == 0.0f && _moveDirection.y == 0.0f)
         {
+            isDirty = true;
             _isRun = false;
-            _animator.SetBool("IsRun", _isRun);
-            return;
         }
 
         if (!_isRun && (_moveDirection.x != 0.0f || _moveDirection.y != 0.0f))
         {
+            isDirty = true;
             _isRun = true;
+        }
+
+        if (isDirty)
+        {
             _animator.SetBool("IsRun", _isRun);
-            return;
         }
     }
 }
