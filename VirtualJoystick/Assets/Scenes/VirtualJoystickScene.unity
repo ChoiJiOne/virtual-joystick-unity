@@ -550,6 +550,7 @@ MonoBehaviour:
   _virtualJoystick: {fileID: 178181925}
   _animator: {fileID: 951319446}
   _moveSpeed: 10
+  _spriteRenderer: {fileID: 951319443}
 --- !u!95 &951319446
 Animator:
   serializedVersion: 7
