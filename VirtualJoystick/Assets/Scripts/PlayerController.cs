@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool IsRun => _isRun;
+
     [SerializeField] private VirtualJoystick _virtualJoystick;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _moveSpeed;
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour
             transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
         }
 
+        UpdateSpriteFlip();
         UpdateAnimationState();
     }
 
@@ -25,6 +28,11 @@ public class PlayerController : MonoBehaviour
     {
         _moveDirection.x = _virtualJoystick.Horizontal;
         _moveDirection.y = _virtualJoystick.Vertical;
+    }
+
+    private void UpdateSpriteFlip()
+    {
+        _spriteRenderer.flipX = _moveDirection.x < 0.0f;
     }
     
     private void UpdateAnimationState()
@@ -44,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
         if (isDirty)
         {
-            _animator.SetBool("IsRun", _isRun);
+            _animator.SetBool(nameof(IsRun), _isRun);
         }
     }
 }
