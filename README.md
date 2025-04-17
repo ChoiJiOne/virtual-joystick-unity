@@ -2,7 +2,7 @@
 - 유니티를 이용한 Virtual Joystick 만들기 연습 프로젝트입니다.
 
 ## 유니티 엔진 버전
-- `000.0.40f1`
+- `6000.0.40f1`
 
 ## 참고 자료
 - [[Unity Basic Skills] 03. 모바일용 가상 컨트롤 (Virtual Joystick)](https://www.youtube.com/watch?v=yWRdnmLHHb8&t=144s)
