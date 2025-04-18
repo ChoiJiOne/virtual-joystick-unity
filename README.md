@@ -5,8 +5,8 @@
 - `6000.0.40f1`
 
 ## 목표
-- 유니티를 이용하여 Virtual Joystick 구현하기
-- 참고 자료에서 개선 사항 찾아 적용하기
+- 유니티를 활용한 Virtual Joystick 구현
+- 기존 참고 자료 기반의 기능 분석 및 개선 사항 적용
 
 ## 참고 자료
 - [[Unity Basic Skills] 03. 모바일용 가상 컨트롤 (Virtual Joystick)](https://www.youtube.com/watch?v=yWRdnmLHHb8&t=144s)
