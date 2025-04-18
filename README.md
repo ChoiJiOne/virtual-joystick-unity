@@ -4,6 +4,10 @@
 ## 유니티 엔진 버전
 - `6000.0.40f1`
 
+## 목표
+- 유니티를 이용하여 Virtual Joystick 구현하기
+- 참고 자료에서 개선 사항 찾아 적용하기
+
 ## 참고 자료
 - [[Unity Basic Skills] 03. 모바일용 가상 컨트롤 (Virtual Joystick)](https://www.youtube.com/watch?v=yWRdnmLHHb8&t=144s)
 - [[Unity 2D Basic] 05-01. 2D Sprite / Animation](https://www.youtube.com/watch?v=jg4nCHgDCFg&t=2s)
