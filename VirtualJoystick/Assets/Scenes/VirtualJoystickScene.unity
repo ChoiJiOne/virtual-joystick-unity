@@ -553,6 +553,7 @@ MonoBehaviour:
   _animator: {fileID: 951319446}
   _moveSpeed: 10
   _spriteRenderer: {fileID: 951319443}
+  _shadowSpriteRenderer: {fileID: 1073750342}
 --- !u!95 &951319446
 Animator:
   serializedVersion: 7
@@ -675,6 +676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ead41f131e7a384c9ea315b5598b88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerSpriteRenderer: {fileID: 951319443}
+  _shadowSpriteRenderer: {fileID: 1073750342}
 --- !u!1 &1255663744
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private SpriteRenderer _shadowSpriteRenderer;
 
     private bool _isRun = false;
     private Vector3 _moveDirection = Vector3.zero;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
         UpdateSpriteFlip();
         UpdateAnimationState();
+        UpdateShadowSprite();
     }
 
     private void UpdateMoveDirection()
@@ -54,5 +56,11 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetBool(nameof(IsRun), _isRun);
         }
+    }
+
+    private void UpdateShadowSprite()
+    {
+        _shadowSpriteRenderer.sprite = _spriteRenderer.sprite;
+        _shadowSpriteRenderer.flipX = _spriteRenderer.flipX;
     }
 }
