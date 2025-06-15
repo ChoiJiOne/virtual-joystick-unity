@@ -5,4 +5,4 @@
 - [가상 조이스틱 시스템 설계](./Docs/FunctionalSpecification.md)
 
 ## 참고 자료
-- 
+- [[Unity Basic Skills] 03. 모바일용 가상 컨트롤 (Virtual Joystick)](https://www.youtube.com/watch?v=yWRdnmLHHb8&t=194s)
