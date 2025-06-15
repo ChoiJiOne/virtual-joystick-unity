@@ -4,9 +4,9 @@ using UnityEngine.EventSystems;
 
 public class TouchInputDispatcher : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-    UnityAction<Vector2> OnBeginTouch;
-    UnityAction<Vector2> OnMoveTouch;
-    UnityAction<Vector2> OnEndTouch;
+    public UnityAction<Vector2> OnBeginTouch;
+    public UnityAction<Vector2> OnMoveTouch;
+    public UnityAction<Vector2> OnEndTouch;
     
     public void OnPointerDown(PointerEventData eventData)
     {
