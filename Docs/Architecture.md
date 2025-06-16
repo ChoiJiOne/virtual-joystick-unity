@@ -4,7 +4,7 @@
 - Virtual Joystick 시스템의 코드 구조와 각 컴포넌트의 책임 분리 설명
 
 ## 전체 구성
-- Virtual Joystick 시스템은 다음 2개의 주요 컴포넌트로 구성
+- Virtual Joystick 시스템은 다음 3개의 주요 컴포넌트로 구성
     - TouchInputDispatcher
     - VirtualJoystick
     - PlayerController
